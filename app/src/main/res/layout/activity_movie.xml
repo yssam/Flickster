@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.sam.flickster.MovieActivity">
+    tools:context="com.example.sam.flickster.MovieActivity"
+    android:background="#1a1f20">
 
     <ListView
         android:layout_width="wrap_content"
