@@ -65,7 +65,7 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie>{
             Picasso.with(getContext()).load(movie.getPosterPath())
                     .placeholder(R.drawable.user_placeholder)
                     .error(R.drawable.user_placeholder_error)
-                    .resize(500,0)
+                    .resize(400,0)
                     .into(viewHolder.ivImage);
         }
         else if (orientation == Configuration.ORIENTATION_LANDSCAPE){
