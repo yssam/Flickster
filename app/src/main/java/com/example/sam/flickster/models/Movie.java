@@ -26,10 +26,15 @@ public class Movie {
         return overview;
     }
 
+    public double getVoteAverage() {
+        return Double.parseDouble(voteAverage);
+    }
+
     String posterPath;
     String backdropPath;
     String originalTitle;
     String overview;
+    String voteAverage;
 
 
 
@@ -40,6 +45,7 @@ public class Movie {
         this.backdropPath = jsonObject.getString("backdrop_path");
         this.originalTitle = jsonObject.getString("original_title");
         this.overview = jsonObject.getString("overview");
+        this.voteAverage = jsonObject.getString("vote_average");
     }
 
     public static ArrayList<Movie> fromJSONArray(JSONArray array){
