@@ -1,13 +1,17 @@
 package com.example.sam.flickster;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.sam.flickster.adapters.MovieArrayAdapter;
 import com.example.sam.flickster.models.Movie;
+import com.example.sam.flickster.models.MovieDetailActivity;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -82,6 +86,8 @@ public class MovieActivity extends AppCompatActivity {
                 super.onFailure(statusCode, headers, responseString, throwable);
             }
         });
+
+        setupListVewListener();
     }
 
     public void fetchTimelineAsync(int page) {
@@ -115,6 +121,23 @@ public class MovieActivity extends AppCompatActivity {
             }
 
         });
+    }
+
+
+    private void setupListVewListener() {
+        lvItems.setOnItemClickListener(
+               new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View item, int pos, long id){
+                // first parameter is the context, second is the class of the activity to launch
+                Intent i = new Intent(MovieActivity.this, MovieDetailActivity.class);
+                i.putExtra("movie", movies.get(pos));
+                startActivity(i);
+                return;
+            }
+        }
+
+        );
     }
 
 }
